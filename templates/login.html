@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Leaf Disease Detection</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Leaf</span>Disease</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                         <a href="{{ url_for('first')}}" class="nav-item nav-link active">Home</a>
+                     
+                    </div>
+                    <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
+                        <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Leaf</span>Disease</h1>
+                    </a>
+                    <div class="navbar-nav mr-auto py-0">
+                  <a href="{{ url_for('login')}}" class="nav-item nav-link active">Login</a>
+                     
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-3 mt-lg-5">Leaf Disease Detection</h1>
+            <div class="d-inline-flex align-items-center text-white">
+            
+                <i class="fa fa-circle px-3"></i>
+                <p class="m-0">Login</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <h1 class="section-title position-relative text-center mb-5">Login</h1>
+                </div>
+ 
+				
+				
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <head>
+
+                <script>
+               addEventListener("load", function () {
+                   setTimeout(hideURLbar, 0);
+               }, false);
+       
+               function hideURLbar() {
+                   window.scrollTo(0, 1);
+               }
+       
+               function login(){
+               var uname = document.getElementById("uname").value;
+               var pwd = document.getElementById("pwd").value;
+       
+           if(uname == "admin" && pwd == "admin")
+           {
+             alert("Login Success!");
+             
+             window.location = "{{url_for('index')}}";
+             return false;
+           }
+           else
+           {
+           alert("Invalid Credentials!")
+           }
+               }
+               
+       
+        
+           </script>
+           
+       </head>
+        
+        <body id="page-top">
+                    
+       
+         <!-- Portfolio Section -->
+         <section class="page-section portfolio" id="portfolio">
+        
+             
+             <!-- Portfolio Section Heading -->
+              
+             <!-- Icon Divider -->
+             <!-- Portfolio Grid Items -->
+             <div class="row">
+        
+               <div class="col-md-6 col-lg-4" style="margin-left:310px">
+                <div class="control-group">
+                         <!-- Username -->
+                         <br>
+                        <br>
+                       
+                         <label class="control-label"   for="username"><b>Username</b></label>
+                         <div class="controls">
+                           <input type="text" id="uname" name="uname" placeholder="" class="form-control">
+                          
+                         </div>
+                       </div>
+                       <br>
+                       <br>
+                       
+                       <div class="control-group">
+                         <!-- Password-->
+                         
+                         <label class="control-label"  for="password"><b>Password</b></label>
+                         <div class="controls">
+                           <input type="password" id="pwd" name="pwd" placeholder="" class="form-control">
+                         
+                         </div>
+                       </div>
+                      
+                       <div class="control-group">
+                         <!-- Button -->
+                         
+                         <div class="controls">
+                          <br>
+                         <br>
+                         <br>
+                           <input type="button" class="btn btn-primary" value="Login" style="margin-left: 80px" onclick="login()">
+                         
+                         </div>
+                       </div>
+                        </div>
+         </div>
+         </div>
+        
+        
+         </section>
+       
+       
+         
+       
+           </body>	 
+		 
+					
+					
+					
+					
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+ 
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary px-2 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/lib/easing/easing.min.js"></script>
+    <script src="../static/lib/waypoints/waypoints.min.js"></script>
+    <script src="../static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../static/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="../static/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="../static/mail/jqBootstrapValidation.min.js"></script>
+    <script src="../static/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

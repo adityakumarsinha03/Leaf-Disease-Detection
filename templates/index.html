@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .img-dec{
+            margin-top: 30px;
+            border-radius: 8px; 
+            border: 2px solid #1e1b1b;
+           
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+    <meta charset="utf-8">
+    <title>Leaf</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Leaf</span>Disease</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                          <a href="{{ url_for('first')}}" class="nav-item nav-link active">Home</a>
+                     
+                    </div>
+                    <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
+                        <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Leaf</span>Disease</h1>
+                    </a>
+                    <div class="navbar-nav mr-auto py-0">
+                      <a href="{{ url_for('login')}}" class="nav-item nav-link active">Login</a>
+                     
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+   <div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-3 mt-lg-5">Leaf Disease Detection</h1>
+            <div class="d-inline-flex align-items-center text-white">
+            
+                <i class="fa fa-circle px-3"></i>
+                <p class="m-0">Preview</p>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <h1 class="section-title position-relative text-center mb-5">Leaf Disease Detection  </h1>
+                </div>
+            </div>
+			
+			
+			
+			
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    
+					
+					 <head>
+			   <script>
+    function previewImage() {
+        var file = document.getElementById("imagefile").files;
+        if (file.length > 0) {
+            var fileReader = new FileReader();
+ 
+            fileReader.onload = function (event) {
+                document.getElementById("preview").setAttribute("src", event.target.result);
+            };
+ 
+            fileReader.readAsDataURL(file[0]);
+        }
+    }
+</script>
+</head>
+<body>
+ <center><h3>Preview</h3></center>
+  <nav class="root navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid row">
+      <div class="navbar-header col-md-1 col-sm-1">
+           
+      </div>
+	    
+      <div class="navbar-header col-md-11 col-sm-11"><h2 style="font-size: 3.5em;"></h1></div>    
+    </div>
+  </nav>
+
+
+  <div class="limiter">
+    <div class="container-login100" style="background-image: url(../static/images/background1.jpg); background-size: fill;">
+      <div class="wrap-login100">
+        <div class="login100-form-title" style=" background-image: url(../static/images/background2.jpg);">
+		 
+		
+        <center>  <span class="login100-form-title-1">
+            Upload Image:
+          </span></center>
+		  
+        </div>
+</br>
+		</br>
+       <center> <form class="login100-form validate-form" action="/submit" method="POST" enctype="multipart/form-data">
+          <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+		  <br>
+            <input class="input100" type="file" name="my_image" id="imagefile" class="btn" accept="image/*" onchange="previewImage();" required>
+	 
+          </div>
+		
+    <img  class="img-dec" id="preview">
+          <div class="container-login100-form-btn">
+		  </br>
+		  </br>
+            <button class="btn btn-primary" type="submit"> Submit </button>
+          </div>
+        </form></center>
+      </div>
+    </div>
+
+        </div>
+  </div> 
+
+   
+</body>
+					
+					
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+ 
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary px-2 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/lib/easing/easing.min.js"></script>
+    <script src="../static/lib/waypoints/waypoints.min.js"></script>
+    <script src="../static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../static/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="../static/lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="../static/mail/jqBootstrapValidation.min.js"></script>
+    <script src="../static/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

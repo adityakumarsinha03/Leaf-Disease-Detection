@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Leaf Disease Detection</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="../static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../static/css/style.css" rel="stylesheet">
+
+
+
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+.mycontent {
+	box-sizing: border-box;
+}
+.mycontent {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	margin: -100px;
+	padding: 0;
+	background: linear-gradient(to right, #008000, #00e600, #b3ffb3, #00e600, #008000);
+	font-family: 'Martel Sans', sans-serif;
+}
+
+h1 {
+	font-size: 5.25vmin;
+	text-align: center;
+	color: white;
+}
+
+h1.down-left{
+    text-shadow: 2px 2px 5px red;
+}
+
+p.down-left{
+    font-style: italic;
+    font-size: 20px;
+    text-shadow: 2px 2px 5px red;
+}
+
+p {
+	font-size: max(10pt, 2.5vmin);
+	line-height: 1.4;
+	color: #0e390e;
+	margin-bottom: 1.5rem;
+}
+
+.lined {
+    border-top: 1px solid #333;
+    padding-top: 0.15em;
+    padding-bottom: 0.15em;
+    margin-top: 0.15em;
+}
+
+.wrap {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	width: 85vmin;
+	height: 25em;
+	border: 8px solid;
+	border-image: linear-gradient(-50deg, green, #00b300, forestgreen, green, lightgreen, #00e600, green) 1;
+	margin: 2rem auto;
+	transition: .3s ease-in-out;
+	position: relative;
+	overflow: hidden;
+}
+.overlay {
+	position: relative;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	padding: 1rem .75rem;
+	background: #186218;
+	transition: .4s ease-in-out;
+	z-index: 1;
+}
+.overlay-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 15vmin;
+	height: 100%;
+	padding: .5rem 0 0 .5rem;
+	border: 3px solid;
+	border-image: 
+    	linear-gradient(
+      	to bottom, 
+      	#AEA724 5%,
+      	forestgreen 35% 65%,
+      	#AEA724 95%
+    	) 0 0 0 100%;
+	transition: .3s ease-in-out .2s;
+	z-index: 1;
+}
+.image-content {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 60vmin;
+	height: 100%;
+	background-image: url("https://assets.codepen.io/4787486/trees.png");
+	background-size: cover;
+	transition: .3s ease-in-out;
+	/* border: 1px solid green; */
+}
+
+.dots {
+	position: absolute;
+	bottom: 1rem;
+	right: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 55px;
+	height: 4vmin;
+	transition: .3s ease-in-out .3s;
+}
+.dot {
+	width: 14px;
+	height: 14px;
+	background: yellow;
+	border: 1px solid indigo;
+	border-radius: 50%;
+	transition: .3s ease-in-out .3s;
+}
+
+.text {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 60vmin;
+	height: 100%;
+	padding: 3vmin 4vmin;
+	background: #fff;
+	box-shadow: inset 1px 1px 15px 0 rgba(0 0 0 / .4);
+	overflow-y: scroll;
+}
+
+.wrap:hover .overlay
+ {
+	transform: translateX(-60vmin);
+}
+.wrap:hover .image-content {
+	width: 30vmin;
+}
+.wrap:hover .overlay-content {
+	border: none;
+	transition-delay: .2s;
+	transform: translateX(60vmin);
+}
+.wrap:hover .dots {
+	transform: translateX(1rem);
+}
+.wrap:hover .dots .dot {
+	background: white;
+}
+
+
+/* Animations and timing delays */
+.animate {
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
+  animation-fill-mode: backwards;
+}
+/* Pop In */
+.pop { animation-name: pop; }
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+/* Slide In */
+.slide { animation-name: slide; }
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translate(4em, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+/* Slide Left */
+.slide-left { animation-name: slide-left; }
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    transform: translate(-40px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+.slide-up {animation-name: slide-up;}
+@keyframes slide-up {
+	0% {
+		opacity: 0;
+		transform: translateY(3em);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+.delay-2 {
+  animation-delay: 0.6s;
+}
+.delay-3 {
+  animation-delay: 0.9s;
+}
+.delay-4 {
+  animation-delay: 1.2s;
+}
+.delay-5 {
+  animation-delay: 1.5s;
+}
+.delay-6 {
+  animation-delay: 1.8s;
+}
+.delay-7 {
+  animation-delay: 2.1s;
+}
+.delay-8 {
+  animation-delay: 2.4s;
+}
+    </style>
+</head>
+<body>
+
+
+ <!-- Navbar Start -->
+ <div class="container-fluid position-relative nav-bar p-0">
+    <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
+            <a href="index.html" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Leaf</span>Disease</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto py-0">
+                    <a href="{{ url_for('first')}}" class="nav-item nav-link active">Home</a>
+                    <a href="{{ url_for('index')}}" class="nav-item nav-link active">Preview</a>
+                </div>
+                <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
+                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">Leaf</span>Disease</h1>
+                </a>
+                <div class="navbar-nav mr-auto py-0">
+                    <a href="{{ url_for('login')}}" class="nav-item nav-link active">Login</a>
+                    <a href="{{ url_for('chart')}}" class="nav-item nav-link active">Chart</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
+
+
+
+ <!-- Header Start -->
+ <div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
+    <div class="container text-center py-5">
+        <h1 class="text-white display-3 mt-lg-5">Leaf Disease Detection</h1>
+        <div class="d-inline-flex align-items-center text-white">
+
+            <i class="fa fa-circle px-3"></i>
+            <p class="m-0">Prediction</p>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+
+
+
+
+    <div class="mycontent">
+    {% if prediction %}
+
+    <div class="wrap animate pop">
+		<div class="overlay">
+			<div class="overlay-content animate slide-left delay-2">
+				<h1 class="animate slide-left pop delay-4 down-left" id="output2"></h1>
+				<p class="animate slide-left pop delay-5 down-left" id="output3" style="color: white; margin-bottom: 2.5rem;"></p>
+			</div>
+            
+			<!-- Kingdom: <em>Plantae</em> -->
+                <img src="{{img_path}}" class="image-content animate slide delay-5" height="300px" width="300px">
+            
+            
+					<div class="dots animate">
+						<div class="dot animate slide-up delay-6"></div>
+						<div class="dot animate slide-up delay-7"></div>
+						<div class="dot animate slide-up delay-8"></div>
+					</div>
+		</div>
+			<div class="text">
+				<p id="output4"></p>
+				<p id="output5" class="lined"></p>
+				<p id="output6" class="lined"></p>
+                <p id="output7" class="lined"></p>
+			</div>
+	</div>
+
+    <script>
+        window.onload = function () {
+
+            var plant_and_diseases = "{{prediction}}"
+            var k = plant_and_diseases.indexOf("___");
+
+            let speech = new SpeechSynthesisUtterance();
+            speech.lang = "hi-IN";
+            speech.volume = 1;
+            speech.rate = 1;
+            speech.pitch = 1;
+
+
+            var plant_name = plant_and_diseases.substring(0, k);
+            plant_diseases_name = plant_and_diseases.substring(k + 3);
+
+            if (plant_and_diseases == ":Apple___Apple_scab") {
+                var v1 = "The given plant is " + plant_name 
+                var v2 = 'The plant is affected by the disease ' + "Apple Scab";
+
+                var v3 = 'Apple scab is a disease caused by the fungus Venturia inaequalis. It survives the winter mainly on infected leaves on the ground but also on bud scales or lesions on wood. At the onset of spring, the fungus resumes growth and starts to produce spores, which are later discharged and dispersed over long distances by the wind. These spores land on developing leaves and fruits and start a new infection. Outer parts of unopened fruit buds are highly susceptible to scab. However, as the fruit matures it becomes much less susceptible. Humid environment, wetting period of leaves or fruits are essential for the infection. Alternative hosts include shrubs of the genus Cotoneaster, Pyracantha and Sorbus. All apple varieties are susceptible to scab, with Gala being more vulnerable.'
+                var v4 = 'If disease levels were high the previous season, liquid copper fungicides can be sprayed to impede the fungal growth on the tree during the winter season. Sulfur sprays are only partially effective against apple scab. However, solutions containing sulfur and pyrethrins are available for organic control of the disease during the growing season.'
+                var v5 = 'Always consider an integrated approach with preventive measures together with biological treatments if available. Protectant fungicides such as dodine, captan or dinathion can be sprayed around bud break to avoid the disease. Once scab has been detected, fungicides based on difenoconazole, myclobutanil or sulphur can be used to control the development of the fungus. Ensure scab fungicides from different chemical groups are used to avoid the development of resistance.'
+                var v6 = 'Use tolerant or resistant varieties. Monitor orchards for signs of the disease. Pick up affected leaves, shoots and fruits. Rake all the fallen leaves from around your trees after harvest. Alternatively, apply 5% urea to leaves in the autumn to enhance their decomposition and to obstruct the life cycle of the fungus. Excessive leaf litter can can also be mowed to speed up the breakdown of tissues. Ensure a pruning method that allow for more air circulation. Water in the evening or early morning hours and avoid overhead irrigation. Avoid getting foliage wet when watering. Apply lime after leaf drop to increase soil pH. Spread a mulch under the trees, keeping it away from the trunk.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Apple___Black_rot") {
+                var v1 = "The given plant is " + plant_name 
+                var v2 = 'The plant is affected by the disease ' + "Black Rot";
+
+                var v3 = 'Black rot is an important disease of apple caused by the fungus Botryosphaeria obtusa. Black rot fungus infects a wide variety of hardwood trees, including apple and pear. Infected trees are often a source of infection for nearby younger bearing blocks.'
+                var v4 = 'The best way to treat black rot is to remove any fallen leaves and fruit that have been affected, cut back bark and cankers, and keep the area under the tree as clean as possible. Use a copper-based spray or lime sulfur to further control the spread of black rot.'
+                var v5 = 'No chemical control is available to control this disease.'
+                var v6 = 'No preventive measure is available related to this disease.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + "." + v5 + "." + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Apple___Cedar_apple_rust") {
+                var v1 = "The given plant is " + plant_name 
+                var v2 = 'The plant is affected by the disease ' + "Cedar Apple Rust";
+
+                var v3 = 'All are caused by different species of the fungus Gymnosporangium and have various junipers and red cedars (juniperus species) as an alternate host. Apples are generally most susceptible to infection by the rust fungi during the period from early bloom until about 30 days after bloom'
+                var v4 = 'If you see the lesions on the apple leaves or fruit, it is too late to control the fungus. In that case, you should focus on purging infected leaves and fruit from around your tree. Spraying apple trees with copper can be done to treat cedar apple rust and prevent other fungal infections'
+                var v5 = 'No chemical control is available to control this disease.'
+                var v6 = 'Choose resistant cultivars when available. Rake up and dispose of fallen leaves and other debris from under trees. Remove galls from infected junipers. In some cases, juniper plants should be removed entirely. Apply preventative, disease-fighting fungicides labeled for use on apples weekly, starting with bud break, to protect trees from spores being released by the juniper host. This occurs only once per year, so additional applications after this springtime spread are not necessary. On juniper, rust can be controlled by spraying plants with a copper solution (0.5 to 2.0 oz/ gallon of water) at least four times between late August and late October. Safely treat most fungal and bacterial diseases with SERENADE Garden. This broad spectrum bio-fungicide uses a patented strain of Bacillus subtilis that is registered for organic use. Best of all, SERENADE is completely non-toxic to honey bees and beneficial insects. Containing sulfur and pyrethrins, Bonide® Orchard Spray is a safe, one-hit concentrate for insect attacks and fungal problems. For best results, apply as a protective spray (2.5 oz/ gallon) early in the season. If disease, insects or wet weather are present, mix 5 oz in one gallon of water. Thoroughly spray all parts of the plant, especially new shoots. Contact your local Agricultural Extension office for other possible solutions in your area.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + "."+ v5 + "." + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Apple___healthy") {
+                var v1 = "The given plant is " + plant_name 
+                var v2 = 'The plant is totally healthy hence no remedies or control required'
+
+                speech.text = v1 + v2 
+                window.speechSynthesis.speak(speech);
+            } 
+
+            else if (plant_and_diseases == "Blueberry___healthy") {
+                var v1 = "The given plant is " + plant_name 
+                var v2 = 'The plant is totally healthy hence no remedies or control required'
+
+                speech.text = v1 + v2 
+                window.speechSynthesis.speak(speech);
+            }     
+            
+            else if (plant_and_diseases == "Cherry_(including_sour)___Powdery_mildew") {
+                var v1 = "The given plant is Cherry."
+                var v2 = 'The plant is affected by the disease ' + "Powdery mildew";
+
+                var v3 = 'Development of powdery mildew is influenced by many environmental factors including temperature, RH, light, and air circulation. Because these optimum conditions usually occur in mid to late summer, powdery mildew outbreaks are most common at that time.'
+                var v4 = 'Spray with OCP eco-fungicide. It rapidly destroys the fungal growth (within 5 minutes) and leaves a protective coating against new spores germinating. Adding OCP eco-seaweed into the spray mix will also help plants strengthen their foliage to fight off further attacks and reduce stress on the plant. Leaves which are severely infected should be removed.'
+                var v5 = 'sulfur, copper-based products, chlorothalonil, horticultural oil, potassium bicarbonate, and Bacillus subtilis can be used for powdery mildew control.'
+                var v6 = 'Plant resistant cultivars in sunny locations whenever possible. Prune or stake plants to improve air circulation. Make sure to disinfect your pruning tools (one part bleach to 4 parts water) after each cut. Remove diseased foliage from the plant and clean up fallen debris on the ground. Use a thick layer of mulch or organic compost to cover the soil after you have raked and cleaned it well. Mulch will prevent the disease spores from splashing back up onto the leaves. Water in the morning, so plants have a chance to dry during the day. Drip irrigation and soaker hoses will help keep the foliage dry. Use a slow-release, organic fertilizer on crops and avoid excess nitrogen. Soft, leafy, new growth is most susceptible.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Cherry_(including_sour)___healthy") {
+                var v1 = "The given plant is Cherry."
+                var v2 = 'The plant is totally healthy hence no remedies or control required'
+
+                speech.text = v1 + v2 
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot") {
+                var v1 = "The given plant is Corn."
+                var v2 = 'The plant is affected by the disease ' + "Cercospora leaf spot or gray leaf spot";
+
+                var v3 = 'The gray leaf spot disease is caused by the fungus Cercospora zeae-maydis. It survives in plant residues in the soil for long periods of time. During the spring, the spores are carried onto the lower leaves by rain splashes and wind. Its lifecycle is favored by elevated temperatures (25 to 30°C), high humidity (dews, fogs) and leaf wetness for prolonged periods of time. Hot, dry weather hinders its development. Symptoms vary slightly between different plant varieties. The fungus completes its lifecycle (from infection to production of new spores) in 14-21 days in a susceptible variety and in 21-28 days in a resistant one.'
+                var v4 = 'No biological control is available to control this disease.'
+                var v5 = 'Always consider an integrated approach with preventive measures and biological treatments if available. Foliar fungicide treatment is a way to manage the disease if it occurs at early stages but it has to be weighted against the weather conditions, the potential yield loss and the susceptibility of the plant. Fungicides containing pyraclostrobin and strobilurin, or combinations of azoxystrobin and propiconazole, prothioconazole and trifloxystrobin work well to control the fungus.'
+                var v6 = 'Plant resistant varieties if available in your area. Plant late to avoid adverse conditions for plants. Keep up good ventilation by widening the space between plants. Plow deep and bury all plant residues after harvest. Plan long-term crop rotations with non-host plants.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Corn_(maize)___Common_rust_") {
+                var v1 = "The given plant is Corn"
+                var v2 = 'The plant is affected by the disease ' + "Common Rust";
+
+                var v3 = 'The disease is caused by the fungus Puccinia sorghi. The fungus overwinters in an alternate host (a species of Oxalis) and releases spores during the spring. The spores can be transported over great distances by winds and rain. They start the infection process when landing on the leaves. Secondary infection from plant to plant can also occur due to wind and rain. The development of the disease is favored by high relative humidities (nearly 100%), dew, rain and cool temperatures between 15 and 20°C (may vary depending on area). Hot, dry weather will in turn slow or hinder the development of the fungus and the incidence of the disease. It is more a problem in plants used for seed production and sweet corn. Plants cultivated as livestock feed, for industrial products, or to make processed foods are not concerned. Yield is reduced due to lower plant productivity and lodging.'
+                var v4 = 'No alternative treatment against Puccinia sorghi is available so far. Please get in touch with us in case you know of anything that might help to fight this disease. Looking forward to hearing from you.'
+                var v5 = 'Always consider an integrated approach with preventive measures together with biological treatments if available. The application of fungicides can be beneficial when used on susceptible varieties. Apply a foliar fungicide early in the season if rust is bound to spread rapidly due to the weather conditions. Numerous fungicides are available for rust control. Products containing mancozeb, pyraclostrobin, pyraclostrobin + metconazole, pyraclostrobin + fluxapyroxad, azoxystrobin + propiconazole, trifloxystrobin + prothioconazole can be used to control the disease. An example of treatment could be: Spraying of mancozeb @ 2.5 g/l as soon as pustules appear and repeat at 10 days interval till flowering.'
+                var v6 = 'Plant resistant varieties available locally. Plant early to avoid optimal conditions for infection. Use shorter season varieties that mature earlier. Monitor your crop regularly for signs of the disease, even more so during overcast weather. Ensure balanced fertilization with split applications of nitrogen. Plan a crop rotation with non-susceptible crops.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Corn_(maize)___Northern_Leaf_Blight") {
+                var v1 = "The given plant is Corn"
+                var v2 = 'The plant is affected by the disease ' + "Northern Leaf Blight";
+
+                var v3 = 'Northern leaf spot of maize is caused by the fungus Helminthosporium carbonum, which overwinters on corn residues in the soil. The spores on these debris serve as primary source of infection during wet weather. Secondary infection from plant to plant is wind- or rain-driven. The disease develops mainly on plants used in seed production and is therefore rarely a problem in the fields, where mostly resistant hybrids are grown. The progression of the disease is favored by moderate temperatures, humid weather, and minimal tillage of the field after harvest. If it occurs during the the grain filling phase, it can result in yield losses of 30 percent of more.'
+                var v4 = 'Most treatments named here have only been used in small scales. Essential oil from Indian bael (Aegle marmelos) is active against Helminthosporium carbonum, at least in laboratory tests. Different compounds isolated from leaf extracts of some maize varieties (resistant and susceptible alike) can be toxic to the fungus. Fungi isolated from the pith of stalk rot-affected maize plants seem also to parasitize on known plant pathogenic fungi, including C. carbonum.'
+                var v5 = 'Always consider an integrated approach with preventive measures combined with biological or organic treatments. On susceptible plants, a foliar fungicide application at the beginning of silking is probably necessary. For example, spraying with mancozeb @ 2.5 g/l of water at 8-10 days interval is effective against the pathogen.'
+                var v6 = 'Check for tolerant or resistant varieties available in your market. Fields should be scouted on a weekly basis to monitor disease development. Space plants to allow canopy to dry quickly after rainfall or irrigation. Lay mulch on the soil to keep plants from touching the soil. Manage weeds to improve airflow and reduce humidity in canopy. Make sure to fertilize the crops suitably in terms of nitrogen and potassium contents. Avoid to work in fields when plants are wet. If using susceptible crops, rotate with non-hosts such as bean, soybean or sunflower. Tillage after harvest to bury plant debris in the soil can also help to reduce populations.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Corn_(maize)___healthy") {
+                var v1 = "The given plant is Corn."
+                var v2 = 'The plant is totally healthy hence no remedies or control required'
+
+                speech.text = v1 + v2 
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Grape___Black_rot") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by the disease ' + "Black rot";
+
+                var v3 = 'The damage is caused by the fungus Phyllosticta ampelicida. The pathogen overwinters in infested shoots or fruit mummies on the grapevine or the soil. The spores will be ejected by light rainfall and then dispersed via wind. Optimal growth conditions are met at 25°C and 6 hours of constant leaf wetness. The fungus prefers warm and humid weather. Reduced fruit yield.'
+                var v4 = 'Immediately after blooming stage you can spray Bacillus thuringiensis.'
+                var v5 = 'Chemical applications are done in a preventive manner. Start spraying roughly two weeks before bloom with captan + mycobutanil or mancozeb + mycobutanil. Just before the blossoms open you can also use carbaryl or imidacloprid. Post-bloom spray mancozeb + mycobutanil, imidacloprid or azadirachtin. Ten days after bloom you can also apply a mixture of captan and sulfur on your vines. Because most grape varieties become resistant to the infection three to four weeks after bloom, chemical sprays should be avoided at that time.'
+                var v6 = 'Choose a more resistant variety if available. Remove fruit mummies from the vine. Infested wood and twines should be removed and destroyed after harvest. Consequently remove infested leaves from the vineyard. Keep your vineyard clear of weeds. Provide proper air circulation and lighting. Prune your vines every year before the vegetative stage.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Grape___Esca_(Black_Measles)") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by the disease ' + "Esca or Black Measles";
+
+                var v3 = 'The symptoms are mainly caused by the fungus Togninia minima but other fungi can also be involved (for example Phaeomoniella chlamydospora). The infection actually occurs in younger vines but the symptoms may first become apparent in vineyards after 5-7 years. The fungi survive the winter in overwintering structures embedded in the woody parts of the vines. During fall to spring rainfall, spores are produced and released and may infect wounds done during dormant pruning. Wounds may remain susceptible to infection for several weeks after pruning. After a pruning wound is infected, the pathogen establishes a permanent, localized wood infection, which cannot be eradicated by fungicide applications.'
+                var v4 = 'Soak dormant cuttings for 30 mins in hot water at about 50°C. This treatment is not always effective and must therefore be combined with other methods. Some species of Trichoderma have been used to prevent the infection of pruning wounds, basal ends of propagation material, and graft unions. This treatment has to be carried out within 24 hours of pruning and again 2 weeks after.'
+                var v5 = 'Always consider an integrated approach with preventive measures together with biological treatments if available. Chemical strategies to control this disease are difficult, since the traditional wound protectants do not penetrate deep enough in the dormant grapevine cuttings to affect the fungi. Preventive practices are the most effective management approach for all trunk diseases. For example, immediately before grafting, vines can be deeped into specialized waxes containing plant growth regulators or fungicide-impregnated formulations. This encourages graft union callus development while inhibiting fungal contamination.'
+                var v6 = 'Use alternative pruning methods such as delayed pruning or double pruning. Avoid pruning during periods of heavy rainfall when spores are likely to be dispersed. Monitor the vineyard in Spring, and look for dead spurs or for stunted shoots. Later in summer, cut off cankered portions of the vine. Remove diseased debris from the vineyard and destroy them. Delay fruiting for several years until vines have balanced root and shoot growth.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+            
+            else if (plant_and_diseases == "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)") {
+
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by the disease ' + "Leaf Blight";
+
+                var v3 = ' Isariopsis leaf spot is actually caused by Pseudocercospora vitis, formerly known as I. vitis.'
+                var v4 = 'No biological control is available to control this disease.'
+                var v5 = 'No chemical control is available to control this disease.'
+                var v6 = 'No preventive measure is available related to this disease.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + "." +v4 + "." +v5+ "." +v6 ;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Grape___healthy") {
+                var v1 = "The given plant is " + plant_name 
+                var v2 = 'The plant is totally healthy hence no remedies or control required'
+
+                speech.text = v1 + v2 
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Orange___Haunglongbing_(Citrus_greening)") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by the disease ' + "Haunglongbing";
+
+                var v3 = 'Huanglongbing (HLB) are caused by the bacterium Candidatus Liberibacter asiaticus. It is transmitted persistently by two psyllid vectors that are omnipresent in the citrus grooves, Diaphorina citri and Trioza erytreae.'
+                var v4 = 'Control of citrus greening depends on exclusion of the pathogen from a citrus-producing area, use of disease-free propagating material, removal of infected trees as soon as they are detected, and attempts to control the insect vectors with insecticides or by biological control.'
+                var v5 = 'No chemical control is available to control this disease.'
+                var v6 = 'No preventive measure is available related to this disease.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + "." +v5 + "." +v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Peach___Bacterial_spot") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by the disease ' + "Bacterial spot";
+
+                var v3 = "Bacterial spot is an important disease of peaches, nectarines, apricots, and plums caused by Xanthomonas arboricola pv. pruni (XAP), formerly Xanthomonas campestris pv. pruni. The disease's symptoms include fruit spots, leaf spots and twig cankers."
+                var v4 = "Whenever possible and practical, the best strategy is to use cultivars with better bacterial spot resistance. This is especially true for orchards in sandy sites prone to the disease. Varieties developed by breeding programs in wet, sandy regions will tend to have better bacterial spot resistance than those developed for dry regions such as California. A variety with moderate resistance to bacterial spot may do well in a site sheltered from wind but have unacceptable symptoms in a bacterial spot-prone site or if planted with highly susceptible varieties. Plant susceptible varieties on the inside of orchard blocks with the most resistant varieties on the exposed orchard edge. Protect trees from strong winds by establishing shelter belt trees on the windward side of the orchard. Another strategy is to establish sod strips between trees and to use gravel or other dust-suppressing methods on nearby dirt roads. Removal of gummy-blackened branch tips typical of bacterial spot during spring pruning may help somewhat to reduce inoculum levels."
+                var v5 = 'Bactericides are available for suppression of bacterial spot. Initial treatments focus on suppression of leaf infection and later on protection of fruit as they emerge from the shuck. Bactericide treatment may not be sufficient to eliminate symptoms under conditions very favorable for disease development.'
+                var v6 = 'No preventive measure is available related to this disease.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 +v6;
+                window.speechSynthesis.speak(speech);
+            }
+            else if (plant_and_diseases == "Peach___healthy") {
+                var v1 = "The given plant is " + plant_name + ".";
+                var v2 = 'The plant is totally healthy hence no remedies or control required.'
+
+                speech.text = v1 + v2 
+                window.speechSynthesis.speak(speech);
+            }
+            else if (plant_and_diseases == "Pepper,_bell___Bacterial_spot") {
+                var v1 = "The given plant is " + "Pepper bell."
+                var v2 = 'The plant is affected by the disease ' + "Bacterial Spot.";
+
+                var v3 = 'The causes of this disease are unavailable.'
+                var v4 = 'No biological control is available to control this disease.'
+                var v5 = 'No chemical control is available to control this disease.'
+                var v6 = 'No preventive measure is available related to this disease.'
+
+                speech.text = v1 + v2 + v3 + v4 + v5 + v6;
+                window.speechSynthesis.speak(speech);
+            }
+            else if (plant_and_diseases == "Pepper,_bell___healthy") {
+                var v1 = "The given plant is Pepper bell." 
+                var v2 = 'The plant is totally healthy hence no remedies or control required.'
+
+                speech.text = v1 + v2 
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Potato___Early_blight") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by the disease ' + "Early Blight";
+
+                var v3 = 'This fungus is an obligate parasite. This means that it must overwinter in plant debris and tubers as well as on alternative hosts to survive. It enters the plant via wounds and rips in the skin. Fungal spores germinate at higher temperatures during the spring and spread through wind or water. The disease is more severe in periods of cool nights (below 18°C), warm days (18-22°C), and extended wet conditions such as rain and fog (90% relative humidity). In these conditions, a late blight epidemic can occur.'
+                var v4 = 'Apply copper-based fungicides before dry weather. Foliar sprays of organic coating agents can also prevent the infection.'
+                var v5 = 'Always consider an integrated approach with preventive measures together with biological treatments if available. Fungicide applications are important to control late blight, particularly in humid areas. Contact fungicides that coat leaves are effective before infections and do not trigger resistance in the fungi. Fungicides containing mandipropamid, chlorothalonil, fluazinam, or mancozeb can also be used as a preventive treatment. Seed treatment before sowing with fungicides like mancozeb also work.'
+                var v6 = 'Use healthy seeds or more tolerant plants. Make sure the field has good air ventilation and well-drained soil. Monitor fields and remove infected plants and surrounding ones. Use rotations of two to three years to non-host crops. Destroy volunteer hosts in and around the field. Avoid excessive fertilization with nitrogen. Use plant fortifiers. Store tubers at low temperatures and with good ventilation. Destroy tubers and plant debris after harvest burying them two feet deep or feeding them to animals.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Potato___Late_blight") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by the disease ' + "Late Blight";
+
+                var v3 = 'Early blight of potato is caused by the fungus, Alternaria solani, which can cause disease in potato, tomato, other members of the potato family, and some mustards. This disease, also known as target spot, rarely affects young, vigorously growing plants. It is found on older leaves first.'
+                var v4 = 'No biological control is available to control this disease.'
+                var v5 = 'Septum is effective right from the outset of the disease as it has both a preventive and curative effect. It produces the breakdown and dehydration of fungal tissues and interrupts sporulation of fungi. Septum is also an excellent alternative for use in resistance management. It can be applied the day before harvesting as it does not leave chemical residues on crops. It is an aid that is compatible in organic farming, IPM and conventional production strategies. '
+                var v6 = 'Protect crops from stress-causing factors, harvest at the right time, use certified pathogen-free seeds and choose the appropriate variety in terms of resistance and susceptibility to disease are further recommendations to bear in mind in strategies for preventing and controlling early blight in potato. '
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Potato___healthy") {
+                var v1 = "The given plant is " + plant_name 
+                var v2 = 'The plant is totally healthy hence no remedies or control required'
+
+                speech.text = v1 + v2 
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Raspberry___healthy") {
+                var v1 = "The given plant is " + plant_name 
+                var v2 = 'The plant is totally healthy hence no remedies or control required'
+
+                speech.text = v1 + v2 
+                window.speechSynthesis.speak(speech);
+            }
+            else if (plant_and_diseases == "Soybean___healthy") {
+                var v1 = "The given plant is " + plant_name 
+                var v2 = 'The plant is totally healthy hence no remedies or control required'
+
+                speech.text = v1 + v2 
+                window.speechSynthesis.speak(speech);
+            }
+            else if (plant_and_diseases == "Squash___Powdery_mildew") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by the disease ' + "Powdery Mildew";
+
+                var v3 = 'Powdery mildew, mainly caused by the fungus Podosphaera xanthii. Powdery mildew infections favor humid conditions with temperatures around 68-81° F. In warm, dry conditions, new spores form and easily spread the disease.'
+                var v4 = "Because powdery mildew is such a common disease, and one that spreads quickly, be prepared to act as soon as you notice symptoms. First, remove infected leaves as soon as you detect the white powdery spots. If any plants show severe symptoms, remove them completely. Put infected plant parts in the trash (not your compost pile) so the disease doesn't spread to healthy plants. And avoid handling healthy plants after touching diseased plants. This is a sure way to spread the disease. The same applies to tools used on diseased plants. Make sure to first wash your hands and disinfect your tools with a 10% bleach solution.Several organic sprays can help minimize the disease. They're most useful early in the infection; they won't cure powdery mildew once it's severe. One of the most effective sprays is neem oil, which is an extract from the tropical neem tree. It's a good control for mild to moderate powdery mildew infections. Spray both upper and lower surfaces of leaves. Apply every week until you detect no more symptoms, then every two weeks to avoid the mildew's return. Sulfur sprays and stylet oil fungicides will also reduce the spread of powdery mildew. Only spray when temperatures are below 90°F to avoid burn, and don't spray when bees are active."
+                var v5 = 'No chemical control is available to control this disease.'
+                var v6 = "Plant resistant varieties. There are lots of resistant varieties of both summer and winter squashes; they're often marked 'PMR' indicating their resistance to powdery mildew Use the recommended seed spacing. Powdery mildew can spread from leaf to leaf and plant to plant very easily. Spacing plants so that they have good air circulation will reduce spread and increase light to leaves. Plant squash in full sun. Shady conditions increase spore germination. Do not overfertilize plants. This overstimulates tender new growth that gets infected more easily. Spray plants with water. Unlike most fungal diseases, powdery mildew spreads most quickly in hot dry weather."
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Strawberry___Leaf_scorch") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by the disease ' + "Leaf Scorch";
+
+                var v3 = 'Leaf scorch is caused by failure of the tree to supply enough water to the leaves at a critical time, usually in July and August. A great amount of water evaporates from the leaf surface because of sun and wind during hot, dry weather. If the water supply is deficient, the exposed leaves dry out and scorch.'
+                var v4 = 'No biological control is available to control this disease.'
+                var v5 = 'Always consider an integrated approach with preventive measures together with biological treatments, if available. Apply fungicides such as Carbendazim and Mancozeb. Spray Bordeaux mixture or Chlorthalonil, Thiophanate-methyl, and Zineb.'
+                var v6 = "Sanitary measures help to reduce inoculum levels.Plant resistant varieties.Remove alternative hosts such as Saccharum spontaneum, Imperata cylindrica, and Rottboellia cochinchinensis.Remove infected leaves. Planting should be done when rainfall and humidity are low to reduce disease incidence. After harvest, severely infected fields can be burned to kill pycniospores inside pycnidia on plant debris and in the soil. Apply more organic, phosphorus and potash fertilizers."
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Strawberry___healthy") {
+                var v1 = "The given plant is " + plant_name 
+                var v2 = 'The plant is totally healthy hence no remedies or control required'
+                
+                speech.text = v1 + v2 
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Tomato___Bacterial_spot") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by the disease ' + "Bacterial Spot";
+
+                var v3 = 'Bacterial Spot and Speck are caused by several species of bacteria of the genus Xanthomonas, and Pseudomonas syringae pv. tomato. Bacterial spot occurs worldwide and is one of the most devastating diseases on tomatoes grown in warm, moist environments. The pathogens can survive in or on seeds, plant debris, and specific weeds. Xanthomonas has a limited survival period of days to weeks in the soil. Secondary infection can occur through rain or overhead irrigation. It enters the plant tissues through leaf pores and wounds. Optimal temperatures range from 25 to 30°C for the bacterial spot. Once the crop is infected, the disease is very difficult to control and can lead to total crop losses. Bacterial speck outbreaks are relatively infrequent and are favored by prolonged leaf moisture and cool temperatures.'
+                var v4 = 'Bacterial Spot is very difficult to control and also expensive to treat. If the disease occurs early in the season, consider destroying the entire crop. Copper-containing bactericides provide a protective cover on foliage and fruit for both bacteria. Bacterial viruses (bacteriophages) that specifically kill the bacteria are available for the bacterial spot. Submerging seeds for one minute in sodium hypochlorite or in hot water (50°C) for 25 minutes can reduce the incidence of both diseases.'
+                var v5 = 'Always consider an integrated approach with preventive measures together with biological treatments, if available. Copper-containing bactericides can be used as a protectant and give partial disease control. Application at first sign of disease and then at 10 to 14-day intervals when warm (spot) / cold (speck), moist conditions prevail. As the development of resistance to copper is frequent, a combination of copper-based bactericide with mancozeb is also recommended.'
+                var v6 = 'Plant disease-free seeds if possible from a certified source. Use resistant varieties if available locally. Inspect field regularly, particularly during overcast weather. Avoid injuring transplants during handling or planting. Ensure sufficient space between plants and use stakes to keep them upright. Remove and burn any seedling or plant part with leaf spots. Remove weeds in and around the field. Mulch the soil to avoid soil-to-plant contamination. Clean tools and equipment. Avoid overhead irrigation and working in fields when foliage is wet. Plough deep plant debris after harvest. Alternatively, remove plant debris and leave the soil idle for some weeks or a month (solarization). Plan a 2-3 year crop rotation with a non-susceptible crop.'
+
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+            
+            else if (plant_and_diseases == "Tomato___Leaf_Mold") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by the disease ' + "Leaf Mold";
+
+                var v3 = 'The symptoms are caused by the fungus Mycovellosiella fulva, whose spores can survive without a host for 6 months to a year at room temperature (non-obligate). Prolonged leaf moisture and humidities above 85% favor the germination of spores. The temperature must be between 4° to 34 °C for spores to germinate, with an optimum temperature at 24-26°C. Dry conditions and the absence of free water on leaves impair germination. The symptoms usually start to appear 10 days after inoculation with the development of spots on both sides of the leaf blade. On the underside, a large number of spore-producing structures are formed and these spores are easily spread from plant to plant by the wind and water splashing, but also on tools, clothing of workers and insects. The pathogen usually infects the leaves by penetrating through stomata in a high humidity level.'
+                var v4 = 'Seed treatment with hot water (25 minutes at 122 °F or 50 °C) is recommended to avoid the pathogen on seeds. The fungi Acremonium strictum, Dicyma pulvinata, Trichoderma harzianum or T. viride and Trichothecium roseum are antagonistic to M. fulva and could be used to reduce its spread. In greenhouse trials the growth of M. fulva on tomatoes was inhibited by A. strictum, Trichoderma viride strain 3 and T. roseum by 53, 66 and 84% respectively. In small arms, apple-cider, garlic or milk sprays and vinegar mix can be used to treat the mold.'
+                var v5 = 'Always consider an integrated approach with preventive measures together with biological treatments if available. Applications should be made prior to infection when environmental conditions are optimal for the development of the disease. Recommended compounds in field use are chlorothalonil, maneb, mancozeb and copper formulations. For greenhouses, difenoconazole, mandipropamid, cymoxanil, famoxadone and cyprodinil are recommended.'
+                var v6 = 'Use certified, disease-free seeds, plant resistant or resilient varieties if available in your area. Plant early to reduce the disease severity. Adjust row and plant spacing to enhance air circulation and reduce humidity in the canopy. Monitor for disease and rogue infected plants as soon as detected. Avoid excessive nitrogen fertilization. Promote air circulation inside the greenhouse. Keep the relative humidity below 85% and night temperatures higher than outside temperatures (suitable on greenhouse). Use drip irrigation and avoid watering foliage. Use a stake, strings, or prune the plant to keep it upstanding and increase airflow in and around it. Remove and destroy (burn) all plants debris after the harvest. Sanitize the greenhouse between crops and maintain extensive hygiene standards with tools and among workers.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Tomato___Septoria_leaf_spot") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by the disease ' + "Septoria leaf spot";
+
+                var v3 = 'Septoria leaf spot occurs worldwide and is caused by the fungus Septoria lycopersici. The fungus infects only plants of the family of potato and tomato. The temperature range for the development of the fungus varies between 15° and 27°C, with optimal growth at 25°C. Spores might be spread by overhead water, splashing rain, hands and clothing of pickers, insects such as beetles, and cultivation equipment. It overwinters on solanaceous weeds and for short periods in soils or soil debris.'
+                var v4 = 'Copper-based fungicides, such as Bordeaux mixture, copper hydroxide, copper sulfate, or copper oxychloride sulfate might help control the pathogen. Apply at 7 to 10 day intervals throughout the late season. Follow harvest restrictions listed on the pesticide label.'
+                var v5 = 'Always consider an integrated approach with preventive measures together with biological treatments if available. Fungicides containing maneb, mancozeb, chlorothalonil effectively control Septoria leaf spot. Apply at 7 to 10 day intervals throughout the season, mainly during flowering and fruit setting. Follow harvest restrictions listed on the pesticide label.'
+                var v6 = 'Acquire certified disease-free seeds. If available, use resistant varieties. Apply organic or plastic mulch to avoid transmission from soil. Remove infected leaves and destroy them. Improve air circulation and keep plants off the ground with stakes. Make sure that production areas are free of susceptible weeds. Do not use sprinklers or other overhead irrigation. Keep your equipment and tools clean after field work. Dig plant debris deep in the soil after harvest. Alternatively, remove and destroy them. Plan a crop rotation for several years with non-susceptible plants.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Tomato___Spider_mites Two-spotted_spider_mite") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by the disease ' + "Spider Mites";
+
+                var v3 = 'Damage is caused by spider mites from the genus Tetranychus, mainly T. urticae and T. cinnabarinus. The adult female is 0.6 mm long, pale green with two darker patches on its oval body, and long hairs on the back. Overwintering females are reddish. In spring, the females lay globular and translucent eggs on the underside of the leaves. The nymphs are pale green with darker markings on the dorsal side. The mites protect themselves with a cocoon on the underside of the leaf blades. The spider mite thrives in dry and hot climates and will produce up to 7 generations in one year in these conditions. There is a wide range of alternative hosts, including weeds.'
+                var v4 = 'In case of minor infestation, simply wash off the mites and remove the affected leaves. Use preparations based on rapeseed, basil, soybean and neem oils to spray leaves thoroughly and reduce populations of T. urticae. Also try garlic tea, nettle slurry or insecticidal soap solutions to control the population. In fields, employ host-specific biological control with predatory mites (for example Phytoseiulus persimilis) or the biological pesticide Bacillus thuringiensis. A second spray treatment application 2 to 3 days after the initial treatment is necessary.'
+                var v5 = 'Always consider an integrated approach with preventive measures together with biological treatments if available. Spider mites are very difficult to control with acaricides because most populations develop resistance to different chemicals after a few years of use. Choose chemical control agents carefully so that they do not disrupt the population of predators. Fungicides based on wettable sulfur (3 g/l), spiromesifen (1 ml/l), dicofol (5 ml/l) or abamectin can be used for example (dilution in water). A second spray treatment application 2 to 3 days after the initial treatment is necessary.'
+                var v6 = 'Plant resistant varieties if available. Monitor your field regularly and check the underside of leaves. Alternatively, shake a few insects off the leaf surface onto a white sheet of paper. Remove affected leaves or plants. Remove nettles and other weeds from fields. Apply water to pathways and other dusty areas at regular intervals to avoid dusty conditions in the field. Water your crop regularly as stressed trees and plants are less tolerant to spider mite damage. Control the use of insecticides to allow beneficial insects to thrive.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+            
+            else if (plant_and_diseases == "Tomato___Target_Spot") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by diseases ' + "Target spot";
+
+                var v3 = 'Target spot of tomato is caused by the fungal pathogen Corynespora cassiicola. The disease occurs on field-grown tomatoes in tropical and subtropical regions of the world.'
+                var v4 = 'No biological control is available to control this disease.'
+                var v5 = 'The strobilurin fungicide azoxystrobin and a combination product of mancozeb and fumoxate provided excellent control of target spot. In these treatments, accumulated disease severity values were only 10&ndash;15% of those in the untreated control and marketable yields were doubled. Excellent disease control also was achieved with acibenzolar-S-methyl, a systemic acquired resistance activator (SAR). This compound reduced defoliation of tomato plants by 42% compared to the control.'
+                var v6 = 'Warm wet conditions favour the disease such that fungicides are needed to give adequate control. The products to use are chlorothalonil, copper oxychloride or mancozeb. Treatment should start when the first spots are seen and continue at 10-14-day intervals until 3-4 weeks before last harvest.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + v4 + 'Chemical Coontrol are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+            
+            else if (plant_and_diseases == "Tomato___Early_blight") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by diseases ' + "Early Blight";
+
+                var v3 = 'Symptoms are caused by Alternaria solani, a fungus that overwinters on infected crop debris in soil or on alternative hosts. Purchased seeds or seedlings may also be already contaminated. Lower leaves often get infected when in contact with contaminated soil. Warm temperatures (24-29°C) and high humidity (90%) favor development of the disease. A long wet period (or alternating wet/dry weather) enhances the production of spores, which may be spread via wind, splashing rain or overhead irrigation. Tubers harvested green or in wet conditions are particularly susceptible to an infection. It often strikes after a period of heavy rainfall and is particularly destructive in tropical and subtropical areas.'
+                var v4 = 'Application of products based on Bacillus subtilis or copper-based fungicides registered as organic can treat this disease.'
+                var v5 = 'Always consider an integrated approach with preventive measures and biological treatments if available. There are numerous fungicides on the market for controlling early blight. Fungicides based on or combinations of azoxystrobin, pyraclostrobin, difenoconazole, boscalid, chlorothalonil, fenamidone, maneb, mancozeb, trifloxystrobin, and ziram can be used. Rotation of different chemical compounds is recommended. Apply treatments in a timely manner, taking into account weather conditions. Check carefully the preharvest interval at which you can harvest safely after the application of these products.'
+                var v6 = 'Use certified pathogen-free seeds or transplants. Look for varieties that are resistant to the disease. Plant or transplant on raised beds to improve drainage. Orient rows in the direction of main winds and avoid shaded areas. Space plants to allow the canopy to dry quickly after rainfall or irrigation. Lay mulch on the soil to keep plants from touching the soil. Monitor fields for signs of the disease, particularly during wet weather. Remove bottom leaves that are too close to the soil. Remove leaves displaying symptoms and destroy them. Keep plants strong and vigorous with an adequate nutrition. Use stakes to keep plants upright. Use a drip irrigation system to minimize leaf wetness. Water plants in the morning so plants dry during the day. Control susceptible weeds in and around the field. Avoid working in fields when plants are wet. After harvest, remove plant debris and burn them (do not compost). Alternatively, plow debris deep in the soil (more than 45 cm). Plan a 2- or 3-year crop rotation with non-susceptible crops. Store tubers at cool temperatures and in well-aerated sites.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Coontrol are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+            
+            else if (plant_and_diseases == "Tomato___Late_blight") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by diseases ' + "Late Blight";
+
+                var v3 = 'The risk of infection is highest in midsummer. The fungus enters the plant via wounds and rips in the skin. Temperature and moisture are the most important environmental factors affecting the development of the disease. Late blight fungi grow best in high relative humidities (around 90%) and in temperature ranges of 18 to 26°C. Warm and dry summer weather can bring the spread of the disease to a halt.'
+                var v4 = 'At this point, there is no biological control of known efficacy against late blight. To avoid spreading, remove and destroy plants around the infected spot immediately and do not compost infected plant material.'
+                var v5 = 'Always consider an integrated approach with preventive measures together with biological treatments if available. Use fungicide sprays based on mandipropamid, chlorothalonil, fluazinam, mancozeb to combat late blight. Fungicides are generally needed only if the disease appears during a time of year when rain is likely or overhead irrigation is practiced.'
+                var v6 = 'Purchase healthy seeds from reliable retailers. Plant more resilient varieties. Tomatoes and potatoes should not be cultivated next to each other. Try to keep plants dry through good drainage and ventilation of your cultures. Install a simple transparent rain shelter with the help of a tarpaulin and wooden stakes. Use plant fortifier for general strengthening of the plants. Crop rotation of two to three years with non-host crops is recommended. Silicate-containing fertilizers may increase the resistance to the fungus, especially in the seedling stage. Avoid irrigation late in the day and irrigate plants at ground level. Disinfect field equipment and tools.'
+
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Coontrol are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+            
+            else if (plant_and_diseases == "Tomato___Tomato_Yellow_Leaf_Curl_Virus") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by diseases ' + "Tomato Yellow Leaf Curl Virus";
+
+                var v3 = 'TYLCV is not seed-borne and is not transmitted mechanically. It is spread by whiteflies of the Bemisia tabaci species. These whiteflies feed on the lower leaf surface of a number of plants and are attracted by young tender plants. The whole infection cycle can take place in about 24 hours and is favored by dry weather with high temperatures.'
+                var v4 = 'There is no treatment against TYLCV. Control the whitefly population to avoid the infection with the virus.'
+                var v5 = 'Once infected with the virus, there are no treatments against the infection. Control the whitefly population to avoid the infection with the virus. Insecticides of the family of the pyrethroids used as soil drenches or spray during the seedling stage can reduce the population of whiteflies. However, their extensive use might promote resistance development in whitefly populations.'
+                var v6 = 'Use resistant or tolerant varieties. Plant early to avoid peak populations of the whitefly. Intercrop with rows of non-susceptible plants such as squash and cucumber. Use nets to cover seedbeds and prevent whiteflies from reaching plants. Practice crop rotation with non-susceptible plants. Avoid planting alternative host plants close to crops. Mulch the seedbed or the field to break the life cycle of the whitefly. Use sticky yellow plastic traps to mass-catch the insect. Monitor the field, handpick diseased plants and bury them away from the field. Find and eradicate weeds in and around the field. Plow deep all plant debris after harvest or burn them.'
+                
+                speech.text = v1 + v2 + ' Causes are ' + v3 + ' Organic Control are ' + v4 + 'Chemical Control are ' + v5 + ' Preventive measures are ' + v6;
+                window.speechSynthesis.speak(speech);
+            }
+            
+            else if (plant_and_diseases == "Tomato___Tomato_mosaic_virus") {
+                var v1 = "The given plant is " + plant_name + "."
+                var v2 = 'The plant is affected by diseases ' + "Tomato Mosaic Virus.";
+                
+                var v3 = 'The causes of this disease are unavailable.'
+                var v4 = 'No biological control is available to control this disease.'
+                var v5 = 'No chemical control is available to control this disease.'
+                var v6 = 'No preventive measure is available related to this disease.'
+
+                speech.text = v1 + v2 + v3 + v4 + v5 + v6;
+                window.speechSynthesis.speak(speech);
+            }
+
+            else if (plant_and_diseases == "Tomato___healthy") {
+                var v1 = "The given plant is " + plant_name 
+                var v2 = 'The plant is totally healthy hence no remedies or control required'
+                
+                speech.text = v1 + v2 
+                window.speechSynthesis.speak(speech);
+            }
+
+
+
+
+            if(plant_diseases_name=='healthy'){
+                document.getElementById('output2').innerHTML = plant_name;
+
+            document.getElementById('output3').innerHTML = "\nPlant Disease : " + "No Diseases found and Plant is healthy";                                                   
+            }
+            else {
+
+            document.getElementById('output2').innerHTML = "\n" + plant_name;
+
+            document.getElementById('output3').innerHTML = "\nPlant Disease : " + plant_diseases_name;
+
+            document.getElementById('output4').innerHTML = "\n\nCauses : " + v3;
+
+            document.getElementById('output5').innerHTML = "\n\nOrganic Control : " + v4;
+
+            document.getElementById('output6').innerHTML = "\n\nChemical Control : " + v5;
+
+            document.getElementById('output7').innerHTML = "\n\nPreventive Measures : " + v6;
+            }
+
+        };
+    </script>
+
+    
+    {% endif %}
+</div>
+</body>
+</html>
